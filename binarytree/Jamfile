@@ -1,0 +1,6 @@
+
+C++ = "g++" ;
+LINK = "g++" ;
+
+Main tree : Main.cpp BinaryTree.cpp ;
+
