@@ -1,0 +1,6 @@
+
+C++ = "g++" ;
+LINK = "g++" ;
+
+Main string : Main.cpp String.cpp ;
+
