@@ -14,6 +14,12 @@ int main(int argc, char* argv[])
 	wcout << "Original: " << text << endl;
 	wcout << "Reversed: " << reverse << endl;
 
+	wcout << "Integer Conversion: " << endl;
+	int num = -5932;
+	wstring conversion;
+	itoa(num, conversion);
+	wcout << "Integer=" << num << ". Converted string: <" << conversion << ">" << endl;
+
 	return 0;
 }
 

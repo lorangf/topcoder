@@ -42,3 +42,20 @@ void reverse_string(const wstring& input, wstring& output)
 
 }
 
+void itoa(int num, std::wstring& output)
+{
+	bool neg=(num<0)?true:false;
+	vector<wchar_t> buffer;
+
+	if (num < 0 ) num *=-1;
+	while(num>0) {
+		wchar_t c = (num%10)+'0';
+		buffer.push_back(c);
+		num /= 10;
+	}
+	if (neg)
+		buffer.push_back('-');
+
+	output = wstring(buffer.rbegin(), buffer.rend());
+}
+

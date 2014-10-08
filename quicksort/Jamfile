@@ -1,0 +1,6 @@
+
+C++ = "g++" ;
+LINK = "g++" ;
+
+Main quicksort : Main.cpp QuickSort.cpp ;
+
