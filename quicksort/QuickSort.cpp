@@ -4,39 +4,41 @@
 using namespace std;
 
 //static
-void QuickSort.sort(int* array, int len)
+void QuickSort::sort(int* array, int len)
 {
 	if ( !array ) return;
 	QuickSort::sort(array, 0, len-1);
 }
 
 // static
-void QuickSort:sort(int* array, int start, int end)
+void QuickSort::sort(int* array, int left, int right)
 {
-	// zero or one item in the list
-	if ( start <= end ) return;
+	// Need to chose a pivot
+	int pivot = array[(left+right)/2];
+	int i = left;
+	int j = right;
 
-	// Exact 2 items in the list, swap if not sorted )
-	if ( end-start==1 ) {
-		if ( array[start] > array[end] ) {
-			std::swap(array[start],array[end]);
+	while(i<=j) {
+		// Find first item in the array bigger than pivot
+		while( array[i]<pivot )
+			i++;
+
+		// Find last item in the array small er than the pivot
+		while( array[j]>pivot )
+			j--;
+
+		// Swap the two items if index valid
+		if ( i <= j ) {
+			int tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;	
+			i++;
+			j--;
 		}
 	}
 
-	// Now the general case where we need to chose a pivot
-	int pindex = (end+start)/2;
-	int pivot = array[pindex];
-	
-	while(start<end) {
-		// Find first item in the array bigger than pivot
-		while( start<end && array[start]<=pivot )
-			start++;
-
-		// Find last item in the array small er than the pivot
-		while(end>start && array[end]>pivot )
-			end--;
-
-		// Swap the two items if index valid
-		//
-	}
+	if ( left < j )
+		sort(array, left, j);
+	if ( i < right )
+		sort(array, i, right );
 }
