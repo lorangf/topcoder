@@ -20,6 +20,11 @@ int main(int argc, char* argv[])
 	itoa(num, conversion);
 	wcout << "Integer=" << num << ". Converted string: <" << conversion << ">" << endl;
 
+	wcout << "Permutation of a string" << endl;
+	wstring word(L"iron");
+	wcout << "Input: " << word << endl;
+	String::permutation(word);
+
 	return 0;
 }
 

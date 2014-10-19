@@ -1,9 +1,41 @@
 
+#include <iostream>
 #include <vector>
 
 #include "String.h"
 
 using namespace std;
+
+//static
+String::String(const wstring& input)
+	: _string(input), _used(input.size(), false)
+{
+}
+
+// static
+void String::permutation(const wstring& input)
+{
+	String word(input);
+	word.permute();
+}
+
+void String::permute()
+{
+	if ( _output.size() == _string.size() ) {
+		wcout << wstring(_output.begin(),_output.end()) << endl;
+		return;
+	}
+
+	for(int i=0; i<_used.size(); i++) {
+		if ( _used[i] == false ) {
+			_used[i] = true;
+			_output.push_back(_string[i]);
+			permute();
+			_output.pop_back();
+			_used[i] = false;
+		}
+	}
+}
 
 void reverse_string(const wstring& input, wstring& output)
 {
