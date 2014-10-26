@@ -1,0 +1,6 @@
+
+C++ = "g++" ;
+LINK = "g++" ;
+
+Main main : main.cpp graph.cpp ;
+
